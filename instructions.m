@@ -111,43 +111,6 @@
 % should be improved on account of ∥r_a_k∥ >> ∥r_r,smaller_k∥ [r,smaller on top, k down]
 % where r_r,smaller_k is the value when a smaller ϑ_r_k is selcted. 
 
-%% Numerical Example Simulation (In the end of the paper)
-% ------------------------------------------
-% The UAS dynamics given: 
-% x_k+1 = A * x_k + ω_k 
-% y_k = C * x_k + v_k
-% State-space matrices (UAS dynamics) from the paper
-% A = [1, 0, (1 - 0.5*dt)*dt, 0;
-%      0, 1, 0, (1 - 0.5*gamma*dt)*dt;
-%      0, 0, 1 - gamma*dt, 0;
-%      0, 0, 0, 1 - gamma*dt];
-% B = [0.5*dt^2, 0;
-%      0, 0.5*dt^2;
-%      dt, 0;
-%      0, dt];
-% C = eye(4);
-% dt = 0.01, gamma = 0.25 are the sampling time and damping parameters.
-% x_k = [P_x; P_y; V_x; V_y] are the four states of the Unmanned Aerial System.
-% The initial state is set to be, x_0 = [10; -20; 30; -10]. By solving pole 
-% placement, the controller gain K and the state observer gain L can be solved
-% K = [40.0400, 0, 29.5498, 0;
-%      0, 20.2002, 0, 68.7490];
-% L = [0.2000, 0, 0.0499, 0;
-%      0, 0.2000, 0, 0.0499;
-%      0, 0, 0.4975, 0;
-%      0, 0, 0, 0.0975];
-% nonlinear transformation and moving target will not affect the system 
-% performance in the absence of attacks. The simulation results figure 1. shows the
-% trajectory of P_x and P_y when attack free, starting from initial state and goes to 0. 
-% Figure 2. shows the state estimation error e_k can converge to 0 quickly.
-% For Figure 3. Now, it is assumed that FDI attacks occur during the time
-% interval [20,30]. It can be seen in fiugre 3. how the trajectory changed
-% under attack. Figure 4. shows the changes of estimation error during
-% attack. Figure 5. shows the detection results. Where it is seen
-% as time k=100, from [20-35] the attack detection results goes to 1, the 
-% rest of the time it is 0. The attack detection flag is 1 till 35; because
-% the impact of the attack on the estimation residue still exists in short
-% time after the attack ends, meaning the residue value is still greater
-% than the detection threshold. So flag=1 during [30-35].
+
 
 
