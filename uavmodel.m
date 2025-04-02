@@ -1,4 +1,4 @@
-%% 6 DOF Linearized UAV Model
+%% 6 DOF Linearized UAV
 % This script provides a linearized UAV model in the form:
 % dot_x(t) = Ax(t) + Bu(t) + h(x,u)
 % y(t) = Cx(t)
