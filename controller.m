@@ -51,16 +51,16 @@ end
 %% Design LQR Controller
 % Define LQR cost function weights
 % State weights (prioritize position and attitude)
-Q = diag([100 100 100 ... % Position states (x,y,z)
+Q_lqr = diag([100 100 100 ... % Position states (x,y,z)
           10 10 10 ...    % Attitude states (phi,theta,psi)
           1 1 1 ...       % Linear velocity states (vx,vy,vz)
           1 1 1]);        % Angular velocity states (p,q,r)
 
 % Control weights
-R = diag([0.1 1 1 1]);    % Thrust, Roll, Pitch, Yaw torques
+R_lqr = diag([0.1 1 1 1]);    % Thrust, Roll, Pitch, Yaw torques
 
 % Solve the Riccati equation to get optimal gain matrix K
-[K, S, e] = lqr(A, B, Q, R);
+[K, S, e] = lqr(A, B, Q_lqr, R_lqr);
 
 disp('LQR Controller Design:');
 disp('Optimal gain matrix K:');
